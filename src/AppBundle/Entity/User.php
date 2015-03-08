@@ -31,7 +31,7 @@ class User
     /**
      * @ORM\Column(type="date")
      */
-    protected $cratedAt;
+    protected $createdAt;
     
     /**
     * 
@@ -50,7 +50,6 @@ class User
         $this->createdAt = new \DateTime("now");
         $this->createdCategories = new ArrayCollection();
         $this->assignedTasks = new ArrayCollection();
-        
     }
 
     /**
@@ -133,26 +132,26 @@ class User
     }
 
     /**
-     * Set cratedAt
+     * Set createdAt
      *
      * @param \DateTime $cratedAt
      * @return User
      */
-    public function setCratedAt($cratedAt)
+    public function setCreatedAt($createdAt)
     {
-        $this->cratedAt = $cratedAt;
+        $this->createdAt = $createdAt;
 
         return $this;
     }
 
     /**
-     * Get cratedAt
+     * Get createdAt
      *
      * @return \DateTime 
      */
-    public function getCratedAt()
+    public function getCreatedAt()
     {
-        return $this->cratedAt;
+        return $this->createdAt;
     }
    
 

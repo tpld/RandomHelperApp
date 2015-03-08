@@ -1,0 +1,6 @@
+{% extends 'base.html.twig' %}
+{% block body %}
+<h1>Edycja użytkownika</h1>
+{% include 'AppBundle:User:form.html.twig' with {'label': 'save'} %}
+<a href="{{ path('app.users') }}">back</a>
+{% endblock %}

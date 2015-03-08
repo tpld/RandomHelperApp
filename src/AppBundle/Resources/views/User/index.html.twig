@@ -1,0 +1,37 @@
+{% extends 'base.html.twig' %}
+{% block body %}
+	<h1>Users list</h1>
+	{% for flashMessage in app.session.flashbag.get('userList') %}
+	    <div style="color: green">
+	        {{ flashMessage }}
+	    </div>
+	{% endfor %}
+	<a href="{{ path('app.user.add') }}">add new user</a>
+	{% if users[0] is defined %}
+		<ul>
+		{% for user in users %}
+			<li>
+				<ul>
+					<li>
+						login: {{ user.email }}
+					</li>
+					<li>
+						pass :-) :{{ user.password }}
+					</li>
+					<li>
+						name: {{ user.name}}
+					</li>
+					<li>
+						<a href="{{ path('app.user.edit', {id: user.id}) }}">edit</a>
+					</li>
+					<li>
+						<form method="post" action="{{ path('app.user.remove', {id: user.id}) }}"><button>remove</button></form>
+					</li>
+				</ul>
+			</li>
+		{% endfor %}
+		</ul>
+	{% else %}
+	<p>Nothing here.</p>
+	{% endif %}
+{% endblock %}

@@ -1,0 +1,4 @@
+{% extends 'base.html.twig' %}
+{% block body %}
+<form method="post" action="{{ path('app.user.remove', {id: id, confirmed: 1}) }}"><button>Confirm remove user</button></form>
+{% endblock %}

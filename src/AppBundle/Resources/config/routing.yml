@@ -1,0 +1,19 @@
+app.users:
+    path: /users
+    defaults: {_controller: 'AppBundle:User:index' }
+
+app.user.add:
+    path: /user/add
+    defaults: {_controller: 'AppBundle:User:form', id: 0 }
+    
+app.user.edit:
+    path: /user/{id}/edit
+    defaults: {_controller: 'AppBundle:User:form' }
+    requirements:
+        id: \d+
+        
+app.user.remove:
+    path: /user/{id}/remove/{confirmed}
+    defaults: {_controller: 'AppBundle:User:remove', confirmed: 0 }
+    requirements:
+        confirmed: 0|1
