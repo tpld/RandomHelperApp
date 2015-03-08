@@ -5,7 +5,7 @@ parameters:
     database_port:     ~
     database_name:     randomapp
     database_user:     randomapp
-    database_password: ~
+    database_password: randomapp
     # You should uncomment this if you want use pdo_sqlite
     # database_path: "%kernel.root_dir%/data.db3"
 
@@ -17,4 +17,4 @@ parameters:
     locale:            en
 
     # A secret key that's used to generate certain security-related tokens
-    secret:            ThisTokenIsNotSoSecretChangeIt
+    secret:            SecretRandomAppToken
