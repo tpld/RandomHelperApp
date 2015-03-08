@@ -42,6 +42,7 @@ class Category
      */
     protected $createdAt;
     
+    
     public function __construct() {
     	$this->createdAt = new \DateTime('now');
     }

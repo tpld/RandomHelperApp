@@ -2,6 +2,7 @@
 namespace AppBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+	use Doctrine\Common\Collections\ArrayCollection;
 
 /**
  * @ORM\Entity
@@ -31,10 +32,18 @@ class User
      * @ORM\Column(type="date")
      */
     protected $cratedAt;
-
+    
+    /**
+     * @ORM\OneToMany(targetEntity="\AppBundle\Entity\Task", mappedBy="assignee")
+     * @var AppBundle\Entity\User
+     */
+    protected $assignedTasks;
 
     public function __construct() {
         $this->createdAt = new \DateTime("now");
+        
+        $this->assignedTasks = new ArrayCollection();
+        
     }
 
     /**
@@ -139,4 +148,37 @@ class User
         return $this->cratedAt;
     }
    
+
+    /**
+     * Add assignedTasks
+     *
+     * @param \AppBundle\Entity\Task $assignedTasks
+     * @return User
+     */
+    public function addAssignedTask(\AppBundle\Entity\Task $assignedTasks)
+    {
+        $this->assignedTasks[] = $assignedTasks;
+
+        return $this;
+    }
+
+    /**
+     * Remove assignedTasks
+     *
+     * @param \AppBundle\Entity\Task $assignedTasks
+     */
+    public function removeAssignedTask(\AppBundle\Entity\Task $assignedTasks)
+    {
+        $this->assignedTasks->removeElement($assignedTasks);
+    }
+
+    /**
+     * Get assignedTasks
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getAssignedTasks()
+    {
+        return $this->assignedTasks;
+    }
 }
