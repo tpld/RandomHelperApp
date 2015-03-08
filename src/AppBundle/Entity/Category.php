@@ -41,6 +41,13 @@ class Category
      * @ORM\Column(name="createdAt", type="datetime")
      */
     protected $createdAt;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="User", inversedBy="createdCategories")
+     * @ORM\JoinColumn(name="user_id", referencedColumnName="id")
+     */
+    protected $createdBy;
+    
     
     public function __construct() {
     	$this->createdAt = new \DateTime('now');
@@ -124,5 +131,28 @@ class Category
     public function getCreatedAt()
     {
         return $this->createdAt;
+    }
+
+    /**
+     * Set createdBy
+     *
+     * @param \AppBundle\Entity\User $createdBy
+     * @return Category
+     */
+    public function setCreatedBy(\AppBundle\Entity\User $createdBy = null)
+    {
+        $this->createdBy = $createdBy;
+
+        return $this;
+    }
+
+    /**
+     * Get createdBy
+     *
+     * @return \AppBundle\Entity\User 
+     */
+    public function getCreatedBy()
+    {
+        return $this->createdBy;
     }
 }

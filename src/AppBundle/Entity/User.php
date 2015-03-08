@@ -32,9 +32,15 @@ class User
      */
     protected $cratedAt;
 
+    /**
+     * @ORM\OneToMany(targetEntity="Category", mappedBy="createdBy")
+     */
+    protected $createdCategories;
+
 
     public function __construct() {
         $this->createdAt = new \DateTime("now");
+        $this->createdCategories = new ArrayCollection();
     }
 
     /**
@@ -139,4 +145,37 @@ class User
         return $this->cratedAt;
     }
    
+
+    /**
+     * Add createdCategories
+     *
+     * @param \AppBundle\Entity\Category $createdCategories
+     * @return User
+     */
+    public function addCreatedCategory(\AppBundle\Entity\Category $createdCategories)
+    {
+        $this->createdCategories[] = $createdCategories;
+
+        return $this;
+    }
+
+    /**
+     * Remove createdCategories
+     *
+     * @param \AppBundle\Entity\Category $createdCategories
+     */
+    public function removeCreatedCategory(\AppBundle\Entity\Category $createdCategories)
+    {
+        $this->createdCategories->removeElement($createdCategories);
+    }
+
+    /**
+     * Get createdCategories
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getCreatedCategories()
+    {
+        return $this->createdCategories;
+    }
 }

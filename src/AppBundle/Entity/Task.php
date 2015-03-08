@@ -90,5 +90,3 @@ class Task
 		$this->createdAt = new DateTime("now");
 	}
 }
-
-
