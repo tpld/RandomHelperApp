@@ -51,6 +51,7 @@ class Task
 
     /**
      * @ORM\ManyToOne(targetEntity="\AppBundle\Entity\User", inversedBy="assignedTasks")
+     * @ORM\JoinColumn(nullable=false)
      * @var AppBundle\Entity\User
      */
     protected $assignee;  
