@@ -42,6 +42,14 @@ class Task
      */
     protected $createdAt;
     
+    /**
+    * 
+    * @ORM\ManyToOne(targetEntity="\AppBundle\Entity\User",inversedBy="createdTasks")
+    *
+    */
+    protected $createdBy;    
+    
+    
     public function getId() {
     	return $this->id;
 	}
@@ -89,6 +97,7 @@ class Task
 	public function __construct() {
 		$this->createdAt = new DateTime("now");
 	}
+	
 }
 
 

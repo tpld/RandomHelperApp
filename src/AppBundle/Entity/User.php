@@ -31,6 +31,13 @@ class User
      * @ORM\Column(type="date")
      */
     protected $cratedAt;
+    
+    /**
+    * 
+    * @ORM\OneToMany(targetEntity="\AppBundle\Entity\Task",mappedBy="createdBy")
+    *
+    */
+    protected $createdTasks;    
 
 
     public function __construct() {
