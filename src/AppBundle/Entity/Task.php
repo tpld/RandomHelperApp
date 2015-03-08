@@ -42,6 +42,25 @@ class Task
      */
     protected $createdAt;
     
+    /**
+    * 
+    * @ORM\ManyToOne(targetEntity="\AppBundle\Entity\User",inversedBy="createdTasks")
+    *
+    */
+    protected $createdBy;  
+
+    /**
+     * @ORM\ManyToOne(targetEntity="\AppBundle\Entity\User", inversedBy="assignedTasks")
+     * @var AppBundle\Entity\User
+     */
+    protected $assignee;  
+    
+    /**
+     * @ORM\ManyToOne(targetEntity="\AppBundle\Entity\Category")
+     * @var AppBundle\Entity\Category
+     */
+    protected $category;
+    
     public function getId() {
     	return $this->id;
 	}
@@ -89,4 +108,19 @@ class Task
 	public function __construct() {
 		$this->createdAt = new DateTime("now");
 	}
+	
+
+
+    /**
+     * Set assignee
+     *
+     * @param \AppBundle\Entity\User $assignee
+     * @return Task
+     */
+    public function setAssignee(\AppBundle\Entity\User $assignee = null)
+    {
+        $this->assignee = $assignee;
+	}
 }
+
+
