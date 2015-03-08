@@ -45,7 +45,7 @@ class Task
     /**
     * 
     * @ORM\ManyToOne(targetEntity="\AppBundle\Entity\User",inversedBy="createdTasks")
-    *
+    * @ORM\JoinColumn(nullable=false)
     */
     protected $createdBy;  
 
@@ -58,6 +58,7 @@ class Task
     
     /**
      * @ORM\ManyToOne(targetEntity="\AppBundle\Entity\Category")
+     * @ORM\JoinColumn(nullable=false)
      * @var AppBundle\Entity\Category
      */
     protected $category;
