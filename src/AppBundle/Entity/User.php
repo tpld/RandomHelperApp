@@ -3,12 +3,14 @@ namespace AppBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 use Doctrine\Common\Collections\ArrayCollection;
+use Symfony\Component\Security\Core\User\UserInterface;
 
 /**
  * @ORM\Entity
  * @ORM\Table
+ * 
  */
-class User
+class User implements UserInterface, \Serializable
 {
     /**
      * @ORM\Column(type="integer")
@@ -50,6 +52,8 @@ class User
         $this->createdAt = new \DateTime("now");
         $this->createdCategories = new ArrayCollection();
         $this->assignedTasks = new ArrayCollection();
+        var_dump($this);
+        die;
     }
 
     /**
@@ -219,5 +223,52 @@ class User
     public function getAssignedTasks()
     {
         return $this->assignedTasks;
+    }
+    
+    
+    //interface
+    /**
+     * @inheritdoc
+     */
+    public function getSalt() {
+    	return "";
+    }
+    
+    /**
+     * @inheritdoc
+     */
+    public function getUsername() {
+    	return $this->getEmail();
+    }
+    
+    /**
+     * @inheritdoc
+     */
+    public function getRoles() {
+    	return array('ROLE_USER');
+    }
+    
+    /**
+     * @inheritdoc 
+     */
+    public function eraseCredentials()
+    {
+    }
+    
+    public function serialize() {
+    	return serialize(array(
+    		'id' => $this->id,
+    		'email' => $this->email, 
+    		'password' => $this->password,
+    		'createdAt' => $this->createdAt
+    	));
+    }
+    
+    public function unserialize($serializedData) {
+    	$arr = unserialize($serializedData);
+    	$this->id = $arr['id'];
+    	$this->email = $arr['email'];
+    	$this->password = $arr['password'];
+    	$this->createdAt = $arr['createdAt'];
     }
 }

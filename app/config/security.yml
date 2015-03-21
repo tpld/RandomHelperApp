@@ -1,7 +1,11 @@
 security:
+    encoders:
+        AppBundle\Entity\User:
+          algorithm: plaintext 
+            
     providers:
-        in_memory:
-            memory: ~
+        appUsers:
+            entity: { class: 'AppBundle:User', property: email }
 
     firewalls:
         dev:
@@ -10,3 +14,13 @@ security:
 
         default:
             anonymous: ~
+            http_basic: ~
+            form_login: 
+              login_path: /auth/login
+              check_path: /auth/check
+            provider: appUsers
+              
+    access_control:
+        - { path: ^/user, roles: ROLE_USER }
+        - { path: ^/category, roles: ROLE_USER }
+        - { path: ^/task, roles: ROLE_USER }
