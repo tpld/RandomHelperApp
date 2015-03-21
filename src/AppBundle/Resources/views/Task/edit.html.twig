@@ -1,4 +1,5 @@
 {% extends 'base.html.twig' %}
+{% block body %}
 <h1>Edycja zadania</h1>
 {{ form_start(form) }}
 {{ form_widget(form) }}
@@ -12,3 +13,4 @@
 
     {{ form_row(form._token) }} // CSRF Token
 </form> #}
+{% endblock %}
