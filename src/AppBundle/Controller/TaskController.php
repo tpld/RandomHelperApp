@@ -13,7 +13,7 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 
 class TaskController extends Controller {
     /**
-     * @Route("/tasks", name="tasks")
+     * @Route("/task/list", name="tasks")
      */
     public function indexAction() {
         // Doctrine
@@ -24,7 +24,7 @@ class TaskController extends Controller {
     }
 
     /**
-     * @Route("/new_task", name="new_task")
+     * @Route("/task/new", name="new_task")
      */
     public function addAction(Request $request) {
         $task = new Task();
@@ -50,7 +50,7 @@ class TaskController extends Controller {
     }
 
     /**
-     * @Route("/show_task/{id}", name="show_task")
+     * @Route("/task/show/{id}", name="show_task")
      * @Template("AppBundle:Task:show.html.twig")
      */
     public function showAction($id) {
@@ -61,7 +61,7 @@ class TaskController extends Controller {
     }
 
     /**
-     * @Route("/edit_task/{id}", name="edit_task")
+     * @Route("/task/edit/{id}", name="edit_task")
      */
     public function editAction($id, Request $request) {
         $task = $this->getDoctrine()
@@ -89,7 +89,7 @@ class TaskController extends Controller {
     }
 
     /**
-     * @Route("/remove_task/{id}", name="remove_task")
+     * @Route("/task/remove/{id}", name="remove_task")
      */
     public function removeAction($id) {
         $em = $this->getDoctrine()->getManager();
