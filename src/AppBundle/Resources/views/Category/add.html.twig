@@ -1,4 +1,5 @@
 {% extends 'base.html.twig' %}
+{% block body %}
 <form method="post" {{ form_enctype(form) }}>
 	{{ form_row(form.name) }}
 	{{ form_row(form.color) }}
@@ -7,3 +8,4 @@
 	<input type="submit"></input>
 
 </form>
+{% endblock %}
