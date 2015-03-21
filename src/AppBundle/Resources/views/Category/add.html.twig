@@ -1,0 +1,8 @@
+<form method="post" {{ form_enctype(form) }}>
+	{{ form_row(form.name) }}
+	{{ form_row(form.color) }}
+
+	{{ form_row(form._token) }}
+	<input type="submit"></input>
+
+</form>
