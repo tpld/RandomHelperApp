@@ -26,3 +26,11 @@ app.auth.check:
     path: /auth/check
     defaults: {_controller: 'AppBundle:Auth:check'}
     
+    
+app.auth.registration:
+    path: /auth/registration
+    defaults: {_controller: 'AppBundle:Auth/Registration:form' }
+    
+app.dashboard: 
+    path: /dashboard
+    defaults: {_controller: 'AppBundle:Dashboard:index' }

@@ -6,6 +6,7 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use AppBundle\Form\UserType;
 use AppBundle\Entity\User;
+use AppBundle\Entity\AppBundle\Entity;
 
 class UserController extends Controller
 {
