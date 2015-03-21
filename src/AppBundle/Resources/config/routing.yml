@@ -1,5 +1,5 @@
 app.users:
-    path: /users
+    path: /user/list
     defaults: {_controller: 'AppBundle:User:index' }
 
 app.user.add:
@@ -17,3 +17,12 @@ app.user.remove:
     defaults: {_controller: 'AppBundle:User:remove', confirmed: 0 }
     requirements:
         confirmed: 0|1
+        
+app.auth.login:
+    path: /auth/login
+    defaults: {_controller: 'AppBundle:Auth:login' }
+    
+app.auth.check:
+    path: /auth/check
+    defaults: {_controller: 'AppBundle:Auth:check'}
+    
