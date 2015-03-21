@@ -60,7 +60,7 @@ class Read
         return $this; //to jest po to, by móc robić $obiekt->setReadDate()->setName()->setCosTam();
     }
     
-        public function getReadDate()
+    public function getReadDate()
     {
         return $this->readDate;
     }
