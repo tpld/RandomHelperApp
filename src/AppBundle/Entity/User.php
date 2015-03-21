@@ -52,8 +52,6 @@ class User implements UserInterface, \Serializable
         $this->createdAt = new \DateTime("now");
         $this->createdCategories = new ArrayCollection();
         $this->assignedTasks = new ArrayCollection();
-        var_dump($this);
-        die;
     }
 
     /**

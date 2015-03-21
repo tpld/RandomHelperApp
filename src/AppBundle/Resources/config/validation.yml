@@ -11,3 +11,9 @@ AppBundle\Entity\User:
         password:
             - NotBlank: ~
         
+        
+AppBundle\Auth\Model\UserRegistration:
+    properties:
+        user:
+            - Valid: {traverse: true}
+        
