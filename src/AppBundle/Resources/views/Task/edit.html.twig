@@ -1,0 +1,13 @@
+<h1>Edycja zadania</h1>
+{{ form_start(form) }}
+{{ form_widget(form) }}
+<button>zapisz to zadanie</button>
+{{ form_end(form) }}
+<a href="{{ path('tasks') }}">lista zadań</a>
+
+{# <form method="post" {{ form_enctype(form) }}>
+    {{ form_row(form.name) }}
+    {{ form_row(form.due_date) }}
+
+    {{ form_row(form._token) }} // CSRF Token
+</form> #}

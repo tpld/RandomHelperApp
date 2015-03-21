@@ -108,7 +108,7 @@ class Task
 	}
 	
 	public function __construct() {
-		$this->createdAt = new DateTime("now");
+		$this->createdAt = new \DateTime("now");
 	}
 	
 
@@ -123,6 +123,60 @@ class Task
     {
         $this->assignee = $assignee;
 	}
+
+    /**
+     * Set createdBy
+     *
+     * @param \AppBundle\Entity\User $createdBy
+     * @return Task
+     */
+    public function setCreatedBy(\AppBundle\Entity\User $createdBy)
+    {
+        $this->createdBy = $createdBy;
+
+        return $this;
+    }
+
+    /**
+     * Get createdBy
+     *
+     * @return \AppBundle\Entity\User 
+     */
+    public function getCreatedBy()
+    {
+        return $this->createdBy;
+    }
+
+    /**
+     * Get assignee
+     *
+     * @return \AppBundle\Entity\User 
+     */
+    public function getAssignee()
+    {
+        return $this->assignee;
+    }
+
+    /**
+     * Set category
+     *
+     * @param \AppBundle\Entity\Category $category
+     * @return Task
+     */
+    public function setCategory(\AppBundle\Entity\Category $category)
+    {
+        $this->category = $category;
+
+        return $this;
+    }
+
+    /**
+     * Get category
+     *
+     * @return \AppBundle\Entity\Category 
+     */
+    public function getCategory()
+    {
+        return $this->category;
+    }
 }
-
-

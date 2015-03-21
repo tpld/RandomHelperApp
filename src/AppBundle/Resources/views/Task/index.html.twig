@@ -1,0 +1,9 @@
+<h1>Lista zadań</h1>
+{% for task in allTasks %}
+    <li>
+        <a href="{{ path('show_task', {'id': task.id}) }}">{{ task.content }}</a>
+        <a href="{{ path('edit_task', {'id': task.id}) }}">zmień</a>
+        <a href="{{ path('remove_task', {'id': task.id}) }}">usuń</a>
+    </li>
+{% endfor %}
+<a href="{{ path('new_task') }}">dodaj nowe zadanie</a>
