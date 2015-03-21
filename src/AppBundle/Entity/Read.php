@@ -8,7 +8,7 @@ use Doctrine\ORM\Mapping as ORM;
  * Read
  *
  * @ORM\Table()
- * @ORM\Entity(repositoryClass="AppBundle\Entity\CategoryRepository")
+ * @ORM\Entity(repositoryClass="AppBundle\Entity\ReadRepository")
  */
 class Read
 {
@@ -34,11 +34,17 @@ class Read
     
      /**
      *
-     * @ORM\Column(name="userId", type="integer")
      * @ORM\ManyToOne(targetEntity="User")
      * @ORM\JoinColumn(name="userId", referencedColumnName="id")
      */
     protected $userId;   
+    
+     /**
+     *
+     * @ORM\ManyToOne(targetEntity="ReadCat")
+     * @ORM\JoinColumn(name="readCatId", referencedColumnName="id")
+     */
+    protected $readCatId; 
  
     
      /**
