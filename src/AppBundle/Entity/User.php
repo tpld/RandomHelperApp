@@ -8,8 +8,8 @@ use Symfony\Component\Security\Core\User\UserInterface;
 /**
  * @ORM\Entity
  * @ORM\Table
- * 
  */
+
 class User implements UserInterface, \Serializable
 {
     /**

@@ -10,7 +10,7 @@ use Doctrine\ORM\Mapping as ORM;
  * @ORM\Table()
  * @ORM\Entity(repositoryClass="AppBundle\Entity\CategoryRepository")
  */
-class Category implements OwnedByUserInterface
+class Category implements CreatedByUserInterface
 {
     /**
      * @var integer

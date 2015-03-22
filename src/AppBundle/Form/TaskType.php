@@ -13,9 +13,10 @@ class TaskType extends AbstractType {
             ->add('dueDate', 'date')
             ->add('done', 'checkbox', array('required' => false))
             ->add('priority', 'choice', ['choices' => [0=>'low', 1=>'medium', 2=>'high']])
-            ->add('createdBy', 'entity', ['class'=>'AppBundle:User'])
-            ->add('assignee', 'entity', ['class'=>'AppBundle:User'])
-            ->add('category', 'entity', ['class'=>'AppBundle:Category']);
+//            this is not needed anymore
+//             ->add('createdBy', 'entity', ['class'=>'AppBundle:User'])
+            ->add('assignee', 'entity', ['class'=>'AppBundle:User', 'property' => 'name'])
+            ->add('category', 'entity', ['class'=>'AppBundle:Category', 'property' => 'name']);
     }
 
     public function setDefaultOptions(OptionsResolverInterface $resolver) {

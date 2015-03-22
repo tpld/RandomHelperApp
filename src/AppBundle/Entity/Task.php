@@ -8,7 +8,7 @@ use Doctrine\ORM\Mapping as ORM;
  * @ORM\Entity
  * @ORM\Table(name="task")
  */
-class Task
+class Task implements CreatedByUserInterface
 {
     /**
      * @ORM\Column(type="integer")

@@ -31,6 +31,10 @@ app.auth.registration:
     path: /auth/registration
     defaults: {_controller: 'AppBundle:Auth/Registration:form' }
     
-app.dashboard: 
+app.dashboard:
     path: /dashboard
+    defaults: {_controller: 'AppBundle:Dashboard:index' }
+    
+app.home:
+    path: /
     defaults: {_controller: 'AppBundle:Dashboard:index' }

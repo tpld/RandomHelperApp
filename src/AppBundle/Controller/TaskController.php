@@ -19,7 +19,7 @@ class TaskController extends Controller {
         // Doctrine
         $allTasks = $this->getDoctrine()
             ->getRepository('AppBundle:Task')
-            ->findAll();
+        	->findBy(array('createdBy' => $this->getUser()));
         return $this->render('AppBundle:Task:index.html.twig', array('allTasks' => $allTasks));
     }
 
