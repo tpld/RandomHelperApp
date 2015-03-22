@@ -25,7 +25,10 @@ class CreatedByUserListener implements EventSubscriber {
 			$token = $this->securityTokenStorage->getToken();
 			if($token->isAuthenticated())
 			{
-				$entity->setCreatedBy($token->getUser());
+				if($entity->getCreatedBy() === null)
+				{
+					$entity->setCreatedBy($token->getUser());
+				}
 			}
 		}
 	}
