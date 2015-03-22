@@ -15,10 +15,12 @@ security:
         default:
             anonymous: ~
             http_basic: ~
-            form_login: 
+            form_login:
+              default_target_path: / 
               login_path: /auth/login
               check_path: /auth/check
             provider: appUsers
+            
               
     access_control:
         - { path: ^/user, roles: ROLE_USER }

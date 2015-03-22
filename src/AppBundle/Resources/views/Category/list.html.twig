@@ -10,7 +10,11 @@
 	<tr>
 	<td style="border:1px solid">{{ category.name}} </td>
 	<td style="border:1px solid">{{ category.color}} </td>
-	<td><form method="POST" action="{{ path('categoryRemove', {id: category.id}) }}"><button>remove</button></form>
+	<td>
+		<form method="POST" action="{{ path('categoryRemove', {id: category.id}) }}">
+			<button>remove</button>
+		</form>
+	</td>
 	</tr>
 {% endfor %}
 </table>

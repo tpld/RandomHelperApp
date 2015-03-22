@@ -6,8 +6,14 @@
 <ul>
 	<li>Tasks
 		<ul>
-			<li><a href="">add</a></li>
-			<li><a href="">add</a></li>
+			<li><a href="{{ path("tasks") }}">list</a></li>
+			<li><a href="{{ path("new_task") }}">add</a></li>
+		</ul>
+	</li>
+	<li>Category
+		<ul>
+			<li><a href="{{ path("categoryList") }}">list</a></li>
+			<li><a href="{{ path("categoryAdd") }}">add</a></li>
 		</ul>
 	</li>
 </ul>
