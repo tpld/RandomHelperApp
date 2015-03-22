@@ -7,7 +7,7 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * Read
  *
- * @ORM\Table()
+ * @ORM\Table(name="ReadEntity")
  * @ORM\Entity(repositoryClass="AppBundle\Entity\ReadRepository")
  */
 class Read
@@ -85,7 +85,7 @@ class Read
     * set readVal
     * @return Read
     */
-    public function getReadVal($readVal) 
+    public function getReadVal() 
     {
     	return $this->readVal;
     }

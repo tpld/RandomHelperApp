@@ -7,7 +7,7 @@ use Symfony\Component\HttpFoundation\Request;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 
-class CategoryController extends Controller
+class ReadCatController extends Controller
 {
     /**
      * 
@@ -30,7 +30,7 @@ class CategoryController extends Controller
     }
     
      /**
-     * @Route("/readCat/remove", name="readCatRemove")
+     * @Route("/readCat/remove/{id}/{confirmed}", name="readCatRemove")
      */
     public function removeAction($id, $confirmed = 0) {
     	$confirmed = (bool)$confirmed;
@@ -60,7 +60,7 @@ class CategoryController extends Controller
 		$readCat = $this->getDoctrine()->getRepository('AppBundle:ReadCat')->find($id);
 	
 		$form = $this->createFormBuilder($readCat)
-		    ->add('readName', 'text');
+		    ->add('readName', 'text')
 		    ->getForm();
 		
 		if ($form->handleRequest($request)->isValid()) {

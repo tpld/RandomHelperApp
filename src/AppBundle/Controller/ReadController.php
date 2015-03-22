@@ -7,7 +7,7 @@ use Symfony\Component\HttpFoundation\Request;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 
-class CategoryController extends Controller
+class ReadController extends Controller
 {
     /**
      * 
@@ -30,7 +30,7 @@ class CategoryController extends Controller
     }
     
      /**
-     * @Route("/read/remove/{confirmed}", name="readRemove")
+     * @Route("/read/remove/{id}/{confirmed}", name="readRemove")
      */
     public function removeAction($id, $confirmed = false) {
     	$confirmed = (bool)$confirmed;

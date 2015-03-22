@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+{% block body %}
+<form method="post" {{ form_enctype(form) }}>
+	{{ form_row(form.readDate) }}
+	{{ form_row(form.readVal) }}
+
+	{{ form_row(form._token) }}
+	<input type="submit"></input>
+
+</form>
+{% endblock %}
