@@ -6,7 +6,7 @@
 	        {{ flashMessage }}
 	    </div>
 	{% endfor %}
-	<a href="{{ path('app.user.add') }}">add new contact</a>
+	<a href="{{ path('app.contact.add') }}">add new contact</a>
 	{% if contacts[0] is defined %}
 		<ul>
 		{% for contact in contacts %}
