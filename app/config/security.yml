@@ -27,3 +27,5 @@ security:
         - { path: ^/category, roles: ROLE_USER }
         - { path: ^/task, roles: ROLE_USER }
         - { path: ^/dashboard, roles: ROLE_USER }
+        - { path: ^/read, roles: ROLE_USER }
+        - { path: ^/readCat, roles: ROLE_USER }
