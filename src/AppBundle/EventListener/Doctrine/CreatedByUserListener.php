@@ -34,17 +34,25 @@ class CreatedByUserListener implements EventSubscriber {
 		}
 	}
 	
-	public function preRemove(LifecycleEventArgs $event) {
-		$entity = $event->getEntity();
+	protected function checkOwnership($entity) {
 		if($entity instanceof CreatedByUserInterface)
 		{
 			/*@var $token \Symfony\Component\Security\Core\Authentication\Token\TokenInterface */
 			$token = $this->securityTokenStorage->getToken();
+
 			if(!$token->isAuthenticated() || $token->getUser() != $entity->getCreatedBy())
 			{
 				throw new AccessDeniedException();
 			}
 		}
+	}
+	
+	public function preRemove(LifecycleEventArgs $event) {
+		$this->checkOwnership($event->getEntity());
+	}
+	
+	public function postLoad(LifecycleEventArgs $event) {
+		$this->checkOwnership($event->getEntity());
 	}
 	
 	/* (non-PHPdoc)
@@ -53,7 +61,8 @@ class CreatedByUserListener implements EventSubscriber {
 	public function getSubscribedEvents() {
 		return array(
 			'prePersist',
-			'preRemove'
+			'preRemove',
+			'postLoad'
 		);
 	}
 

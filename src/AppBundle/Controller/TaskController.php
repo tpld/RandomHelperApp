@@ -30,7 +30,9 @@ class TaskController extends Controller {
         $task = new Task();
 
         # stwarzamy obiekt formularza
-        $form = $this->createForm(new TaskType(), $task);
+        $form = $this->createForm(new TaskType(), $task, array(
+        	'userId' => $this->getUser()->getId()
+        ));
 
         # obsłuż żądanie http
         $form->handleRequest($request);
