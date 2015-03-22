@@ -1,0 +1,5 @@
+{% extends "base.html.twig"%}
+{% block body %}
+<h1>Add contact</h1>
+{%include "AppBundle:Contact:form.html.twig" with {form_path: path('app.contact.add')} %}
+{% endblock %}

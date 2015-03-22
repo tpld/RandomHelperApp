@@ -1,0 +1,5 @@
+{% extends 'base.html.twig' %}
+{% block body %}
+<h1>Remove contact confirmation</h1>
+<form method="post" action="{{ path('app.contact.remove', {id: id, confirmed: 1}) }}"><button>Confirm remove user</button></form>
+{% endblock %}

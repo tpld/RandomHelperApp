@@ -38,3 +38,23 @@ app.dashboard:
 app.home:
     path: /
     defaults: {_controller: 'AppBundle:Dashboard:index' }
+    
+    
+app.contacts:
+    path: /contacts/list
+    defaults: {_controller: 'AppBundle:Contact:index' }
+
+app.contact.add:
+    path: /contact/add
+    defaults: {_controller: 'AppBundle:Contact:add'}
+    
+app.contact.edit:
+    path: /contact/edit/{id}
+    defaults: {_controller: 'AppBundle:Contact:edit'}
+    requirements:
+        id: \d+
+app.contact.remove:
+    path: /contact/{id}/remove/{confirmed}
+    defaults: {_controller: 'AppBundle:Contact:remove', confirmed: 0 }
+    requirements:
+        confirmed: 0|1

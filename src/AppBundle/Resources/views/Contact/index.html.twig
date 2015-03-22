@@ -1,0 +1,34 @@
+{% extends 'base.html.twig' %}
+{% block body %}
+	<h1>Contacts</h1>
+	{% for flashMessage in app.session.flashbag.get('app.contacts') %}
+	    <div style="color: green">
+	        {{ flashMessage }}
+	    </div>
+	{% endfor %}
+	<a href="{{ path('app.user.add') }}">add new contact</a>
+	{% if contacts[0] is defined %}
+		<ul>
+		{% for contact in contacts %}
+			<li>
+				<dl>
+					<dt>firstname:</dt>
+					<dd>{{ contact.firstname}}</dd>
+					<dt>lastname:</dt>
+					<dd>{{ contact.lastname}}</dd>
+				</dl>
+				<ul>
+					<li>
+						<a href="{{ path('app.contact.edit', {id: contact.id}) }}">show/edit</a>
+					</li>
+					<li>
+						<form method="post" action="{{ path('app.contact.remove', {id: contact.id}) }}"><button>remove</button></form>
+					</li>
+				</ul>
+			</li>
+		{% endfor %}
+		</ul>
+	{% else %}
+	<p>Nothing here.</p>
+	{% endif %}
+{% endblock %}
