@@ -58,3 +58,6 @@ app.contact.remove:
     defaults: {_controller: 'AppBundle:Contact:remove', confirmed: 0 }
     requirements:
         confirmed: 0|1
+        
+app.auth.logout:
+    path:   /auth/logout

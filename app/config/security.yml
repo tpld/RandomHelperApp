@@ -20,6 +20,9 @@ security:
               login_path: /auth/login
               check_path: /auth/check
             provider: appUsers
+            logout:
+                path:   /auth/logout
+                target: /
             
               
     access_control:
@@ -29,4 +32,4 @@ security:
         - { path: ^/dashboard, roles: ROLE_USER }
         - { path: ^/read, roles: ROLE_USER }
         - { path: ^/readCat, roles: ROLE_USER }
-        - { path: ^/contact, roles: ROLE_USER }
+        - { path: ^/contacts, roles: ROLE_USER }

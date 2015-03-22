@@ -11,6 +11,10 @@ class DashboardController extends Controller
 {
     public function indexAction()
     {
+    	if($this->get('security.context')->isGranted('ROLE_USER') === false)
+    	{
+    		return $this->redirect($this->generateUrl('app.dashboard'));
+    	}
         return $this->render('AppBundle:Dashboard:index.html.twig');
     }
     
