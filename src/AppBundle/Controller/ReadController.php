@@ -1,8 +1,8 @@
 <?php
 namespace AppBundle\Controller;
 
-use AppBundle\Form\CategoryType;
-use AppBundle\Entity\Category;
+use AppBundle\Form\ReadType;
+use AppBundle\Entity\Read;
 use Symfony\Component\HttpFoundation\Request;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
@@ -37,7 +37,7 @@ class CategoryController extends Controller
     	$id = (int)$id;
     	if($confirmed === true)
     	{
-    		$em = $this->getDoctrine()->getManager();
+    		$em = $this->getDoctrine()->getManager(); //em stands for entityManager
     		$read = $this->getDoctrine()->getRepository('AppBundle:Read')->find($id);
     		$em->remove($read);
     		$em->flush();
@@ -57,13 +57,23 @@ class CategoryController extends Controller
     /**
 	* @Route("/read/edit", name="readEdit")
 	*/
-	public function editAction($id, ) {     //DOKOŃCZYĆ!!
-	$em = $this->getDoctrine()->getManager();
-	$read = $this->getDoctrine()->getRepository('AppBundle:Read')->find($id);
-    
-    if ($form->handleRequest($request)->isValid()) {
-
-    } 
+	public function editAction($id, Request $request) {     //DOKOŃCZYĆ!!
+		$em = $this->getDoctrine()->getManager();
+		$read = $this->getDoctrine()->getRepository('AppBundle:Read')->find($id);
+	
+		$form = $this->createFormBuilder($read)
+		    ->add('readDate', 'datetime')
+		    ->add('readVal', 'integer')
+		    ->getForm();
+		
+		if ($form->handleRequest($request)->isValid()) {
+			$em->flush();
+			return $this->redirectToRoute('readList');
+		} 
+		return $this->render('AppBundle:Read:edit.html.twig', array(
+				'form' => $form->createView(),
+			));
+    }
     
      /**
      * @Route("/read/list", name="readList")
