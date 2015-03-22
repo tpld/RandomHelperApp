@@ -9,7 +9,7 @@
 {% for read in reads %}
 	<tr>
 	<td style="border:1px solid">{{ read.readDate|date('Y-M-d')}} </td>
-	<td style="border:1px solid">{{ read.readVal | number_format(5)}} </td>
+	<td style="border:1px solid">{{ read.readVal | number_format(3)}} </td>
 	<td><form method="post" action="{{ path('readRemove', {id: read.id}) }}">
 	<button>remove</button></form></td>
 	</tr>

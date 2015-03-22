@@ -1,0 +1,17 @@
+{% extends 'base.html.twig' %}
+{% block body %}
+<table>
+	<tr>
+		<td>Read name</td>
+		<td>options</td>
+	</tr>
+{% for readCat in readCats %}
+	<tr>
+	<td style="border:1px solid">{{ readCat.readName }} </td>
+	<td><form method="post" action="{{ path('readCatRemove', {id: readCat.id}) }}">
+	<button>remove</button></form></td>
+	</tr>
+{% endfor %}
+</table>
+<a href="{{ path('readCatAdd') }}">add new read category</a>
+{% endblock %}

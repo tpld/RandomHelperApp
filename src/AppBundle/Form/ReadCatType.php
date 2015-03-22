@@ -6,7 +6,7 @@ use Symfony\Component\Form\AbstractType;
 use Symfony\Component\OptionsResolver\OptionsResolverInterface;
 use Symfony\Component\Form\FormBuilderInterface;
 
-class ReadType extends AbstractType
+class ReadCatType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options)
     {

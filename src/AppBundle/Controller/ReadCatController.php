@@ -30,7 +30,7 @@ class ReadCatController extends Controller
     }
     
      /**
-     * @Route("/readCat/remove", name="readCatRemove")
+     * @Route("/readCat/remove/{id}/{confirmed}", name="readCatRemove")
      */
     public function removeAction($id, $confirmed = 0) {
     	$confirmed = (bool)$confirmed;
