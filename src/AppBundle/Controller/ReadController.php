@@ -30,9 +30,9 @@ class CategoryController extends Controller
     }
     
      /**
-     * @Route("/read/remove", name="readRemove")
+     * @Route("/read/remove/{confirmed}", name="readRemove")
      */
-    public function removeAction($id, $confirmed = 0) {
+    public function removeAction($id, $confirmed = false) {
     	$confirmed = (bool)$confirmed;
     	$id = (int)$id;
     	if($confirmed === true)
@@ -47,7 +47,7 @@ class CategoryController extends Controller
     	}
     	else
     	{
-    		return $this->render('AppBundle:User:remove.html.twig', array(
+    		return $this->render('AppBundle:Read:remove.html.twig', array(
     			'id' => $id
     		));
     	}
@@ -57,7 +57,7 @@ class CategoryController extends Controller
     /**
 	* @Route("/read/edit", name="readEdit")
 	*/
-	public function editAction($id, Request $request) {     //DOKOŃCZYĆ!!
+	public function editAction($id, Request $request) {   
 		$em = $this->getDoctrine()->getManager();
 		$read = $this->getDoctrine()->getRepository('AppBundle:Read')->find($id);
 	
