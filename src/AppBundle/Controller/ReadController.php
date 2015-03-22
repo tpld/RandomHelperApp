@@ -30,7 +30,7 @@ class ReadController extends Controller
     }
     
      /**
-     * @Route("/read/remove/{confirmed}", name="readRemove")
+     * @Route("/read/remove/{id}/{confirmed}", name="readRemove")
      */
     public function removeAction($id, $confirmed = false) {
     	$confirmed = (bool)$confirmed;

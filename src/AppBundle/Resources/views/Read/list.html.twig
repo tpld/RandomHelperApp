@@ -10,9 +10,10 @@
 	<tr>
 	<td style="border:1px solid">{{ read.readDate|date('Y-M-d')}} </td>
 	<td style="border:1px solid">{{ read.readVal | number_format(5)}} </td>
-	<td><form method="POST" action="{{ path('readRemove', {id: read.id}) }}"><button>remove</button></form></td>
+	<td><form method="post" action="{{ path('readRemove', {id: read.id}) }}">
+	<button>remove</button></form></td>
 	</tr>
 {% endfor %}
 </table>
-<a href="{{ path('categoryAdd') }}">add new category</a>
+<a href="{{ path('readAdd') }}">add new read</a>
 {% endblock %}
