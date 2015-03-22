@@ -12,7 +12,7 @@ class ReadType extends AbstractType
     {
         $builder
             ->add('readDate', 'datetime')
-            ->add('readVal', 'integer');
+            ->add('readVal', 'number');
     }
 
 	public function setDefaultOptions(OptionsResolverInterface $resolver) {

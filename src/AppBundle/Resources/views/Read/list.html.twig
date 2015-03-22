@@ -1,0 +1,18 @@
+{% extends 'base.html.twig' %}
+{% block body %}
+<table>
+	<tr>
+		<td>Read date</td>
+		<td>Read value</td>
+		<td>options</td>
+	</tr>
+{% for read in reads %}
+	<tr>
+	<td style="border:1px solid">{{ read.readDate|date('Y-M-d')}} </td>
+	<td style="border:1px solid">{{ read.readVal | number_format(5)}} </td>
+	<td><form method="POST" action="{{ path('readRemove', {id: read.id}) }}"><button>remove</button></form></td>
+	</tr>
+{% endfor %}
+</table>
+<a href="{{ path('categoryAdd') }}">add new category</a>
+{% endblock %}
