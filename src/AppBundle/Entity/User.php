@@ -43,7 +43,7 @@ class User implements UserInterface, \Serializable
     protected $createdTasks;    
 
     /**
-     * @ORM\OneToMany(targetEntity="Category", mappedBy="createdBy")
+     * @ORM\OneToMany(targetEntity="\AppBundle\Entity\Category", mappedBy="createdBy")
      */
     protected $createdCategories;
 
@@ -268,5 +268,9 @@ class User implements UserInterface, \Serializable
     	$this->email = $arr['email'];
     	$this->password = $arr['password'];
     	$this->createdAt = $arr['createdAt'];
+    }
+    
+    public function __toString() {
+    	return $this->getName();
     }
 }

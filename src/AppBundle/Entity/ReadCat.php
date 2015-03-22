@@ -7,6 +7,7 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * ReadCat
  *
+ * @ORM\Entity
  * @ORM\Table()
  */
 class ReadCat 

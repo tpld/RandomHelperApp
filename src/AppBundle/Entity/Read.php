@@ -28,7 +28,7 @@ class Read
     
      /**
      *
-     * @ORM\Column(name="readVal", type="decimal", scale="2")
+     * @ORM\Column(name="readVal", type="decimal", scale=2)
      */
     protected $readVal;
     
@@ -41,10 +41,10 @@ class Read
     
      /**
      *
-     * @ORM\ManyToOne(targetEntity="ReadCat")
+     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\ReadCat")
      * @ORM\JoinColumn(name="readCatId", referencedColumnName="id")
      */
-    protected $readCatId; 
+    protected $readCat; 
  
     
      /**
@@ -89,5 +89,17 @@ class Read
     {
     	return $this->readVal;
     }
+    
+	public function getReadCat() {
+		return $this->readCat;
+	}
+	
+	public function setReadCat($readCat) {
+		$this->readCat = $readCat;
+		return $this;
+	}
+	
+    
+    
     
 }

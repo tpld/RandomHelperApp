@@ -10,7 +10,7 @@ use Doctrine\ORM\Mapping as ORM;
  * @ORM\Table()
  * @ORM\Entity(repositoryClass="AppBundle\Entity\CategoryRepository")
  */
-class Category
+class Category implements OwnedByUserInterface
 {
     /**
      * @var integer
@@ -43,7 +43,7 @@ class Category
     protected $createdAt;
 
     /**
-     * @ORM\ManyToOne(targetEntity="User", inversedBy="createdCategories")
+     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\User", inversedBy="createdCategories")
      * @ORM\JoinColumn(name="user_id", referencedColumnName="id")
      */
     protected $createdBy;
