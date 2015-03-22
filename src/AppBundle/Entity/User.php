@@ -26,21 +26,26 @@ class User implements UserInterface, \Serializable
      * @ORM\Column(type="string")
      */
     protected $password;
+    
     /**
      * @ORM\Column(type="string")
      */
     protected $name;
+    
     /**
      * @ORM\Column(type="date")
      */
     protected $createdAt;
     
     /**
-    * 
     * @ORM\OneToMany(targetEntity="\AppBundle\Entity\Task",mappedBy="createdBy")
-    *
     */
-    protected $createdTasks;    
+    protected $createdTasks;
+    
+    /**
+     * @ORM\OneToMany(targetEntity="\AppBundle\Entity\Task",mappedBy="assignee")
+     */
+    protected $assignedTasks;
 
     /**
      * @ORM\OneToMany(targetEntity="\AppBundle\Entity\Category", mappedBy="createdBy")

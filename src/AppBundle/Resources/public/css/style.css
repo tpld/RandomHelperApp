@@ -2,3 +2,16 @@ body {
 	font-family: sans;
 	font-size: 14px;
 }
+
+a {
+	color: #000;
+}
+
+.footer.links {
+	margin-top: 50px;
+}
+
+.footer.links a {
+	color: #0098BB;
+	font-weight: bold;
+}

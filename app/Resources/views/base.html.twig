@@ -15,5 +15,10 @@
     <body>
         {% block body %}{% endblock %}
         {% block javascripts %}{% endblock %}
+        {% if is_granted("ROLE_USER") %}
+        <div class="footer links">
+        <a href="{{ path('app.dashboard') }}">Go to dashboard</a>
+        </div>
+        {% endif %}
     </body>
 </html>
