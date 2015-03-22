@@ -29,3 +29,4 @@ security:
         - { path: ^/dashboard, roles: ROLE_USER }
         - { path: ^/read, roles: ROLE_USER }
         - { path: ^/readCat, roles: ROLE_USER }
+        - { path: ^/contact, roles: ROLE_USER }
