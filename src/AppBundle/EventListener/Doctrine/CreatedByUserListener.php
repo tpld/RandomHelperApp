@@ -3,9 +3,10 @@ namespace AppBundle\EventListener\Doctrine;
 
 use Doctrine\Common\EventSubscriber;
 use Doctrine\ORM\Event\LifecycleEventArgs;
-use AppBundle\Entity\CreatedByUserInterface;
+use AppBundle\Interfaces\Entity;
 use Symfony\Component\Security\Core\Authentication\Token\Storage\TokenStorageInterface;
 use Symfony\Component\Security\Core\Exception\AccessDeniedException;
+use AppBundle\Interfaces\Entity\CreatedByUserInterface;
 
 class CreatedByUserListener implements EventSubscriber {
 	

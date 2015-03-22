@@ -1,6 +1,7 @@
 <?php 
-namespace AppBundle\Entity;
+namespace AppBundle\Interfaces\Entity;
 
+use AppBundle\Entity\User;
 interface CreatedByUserInterface {
 	/**
 	 * @return \AppBundle\Entity\User
